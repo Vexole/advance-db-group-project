@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <%- include("layouts/header") %>
+
+  <body>
+    <!-- Navigation contents -->
+    <%- include("layouts/navbar") %>
+
+    <!-- background image is populated here -->
+    <header class="hero sell_hero" id="home">
+      <h1>SELL BOOKS</h1>
+    </header>
+
+    <main>
+      <!-- button to move the page at the the top -->
+      <button id="go_to_top" title="Go to top">^</button>
+
+      <section id="sales_form_container">
+        <form id="sales_form" action="/sell" method="POST">
+          <section id="sales_form_fieldset">
+            <input type="hidden" value="<%= books %>" name="books" id="books" />
+            <label for="book_number"
+              >Book Number <span class="required">*</span></label
+            >
+            <input type="text" id="book_number" name="book_number" autofocus />
+
+            <label for="book_qty">Qty <span class="required">*</span></label>
+            <input type="number" id="book_qty" name="book_qty" min="1" />
+
+            <label for="book_price"
+              >Unit Price <span class="required">*</span></label
+            >
+            <input type="number" id="book_price" name="book_price" min="0" />
+
+            <button type="button" id="add_to_cart">Add to Cart</button>
+          </section>
+          <input type="hidden" name="sale" id="sale" />
+          <section id="cart_list_container" class="checkout_only">
+            <table id="cart">
+              <thead>
+                <tr>
+                  <th>S.N.</th>
+                  <th>Name</th>
+                  <th>Qty</th>
+                  <th>Price</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <p id="cart_total">Total: <span id="total">$0.0</span></p>
+          </section>
+
+          <label for="payment_mode" class="checkout_only"
+            >Payment Mode <span class="required">*</span></label
+          >
+          <select id="payment_mode" name="payment_mode" class="checkout_only" required>
+            <option value="1|Cash">Cash</option>
+            <option value="2|Credit Card">Credit Card</option>
+            <option value="3|Debit Card">Debit Card</option>
+            <option value="4|Gift Card">Gift Card</option>
+            <option value="5|PLCC Card">PLCC Card</option>
+          </select>
+
+          <label for="phone" class="checkout_only">Customer's Phone #</label>
+          <input type="number" id="phone" name="phone" pattern="[0-9]{10}" class="checkout_only" />
+
+          <p id="submit_btn" class="button checkout_only">Complete Transaction</p>
+          <input type="submit" name="submit" id="complete_sale" />
+        </form>
+      </section>
+    </main>
+
+    <%- include("layouts/footer") %> <%- include("layouts/scripts") %>
+  </body>
+</html>

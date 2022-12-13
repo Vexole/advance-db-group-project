@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <%- include("layouts/header") %>
+
+  <body>
+    <!-- Navigation contents -->
+    <%- include("layouts/navbar") %>
+
+    <!-- background image is populated here -->
+    <header class="hero reports_hero" id="home">
+      <h1>REPORTS</h1>
+    </header>
+
+    <main>
+      <!-- button to move the page at the the top -->
+      <button id="go_to_top" title="Go to top">^</button>
+
+      <section id="report_list_container">
+        <p class="th">S.N.</p>
+        <p class="th">Report Name</p>
+        <p class="th">Action</p>
+        <p>1</p>
+        <p>Top Selling Books</p>
+        <p><a href="/topSellingBooks">Generate Report</a></p>
+        <p>2</p>
+        <p>Top Spending Customers</p>
+        <p><a href="/topSpendingCustomers">Generate Report</a></p>
+        <p>3</p>
+        <p>Revenue By Payment Mode</p>
+        <p><a href="/salesPaymentMode">Generate Report</a></p>
+      </section>
+    </main>
+
+    <%- include("layouts/footer") %> <%- include("layouts/scripts") %>
+  </body>
+</html>

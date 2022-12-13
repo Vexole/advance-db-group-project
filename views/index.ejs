@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <%- include("layouts/header") -%>
+
+  <body>
+    <!-- Navigation contents -->
+    <%- include("layouts/navbar") -%>
+
+    <!-- background image is populated here -->
+    <header id="dashboard_header">
+      <h1>Welcome to DriveTest Booking Kiosk!!</h1>
+      <div class="dashboard_slider">
+        <img src="./images/car.jpg" alt="photography" />
+        <img src="./images/car-dashboard.jpg" alt="photography" />
+        <img src="./images/car-test.jpg" alt="photography" />
+      </div>
+    </header>
+
+    <main>
+      <!-- button to move the page at the the top -->
+      <button id="go_to_top" title="Go to top">^</button>
+    </main>
+
+    <%- include("layouts/footer") -%>
+    <%- include("layouts/scripts") -%>
+  </body>
+</html>

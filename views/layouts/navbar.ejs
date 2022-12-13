@@ -1,0 +1,21 @@
+<section class="top-nav">
+  <div>
+    <a href="/" id="store_logo">DIGITAL BOOK STORE</a>
+  </div>
+  <input id="menu-toggle" type="checkbox" />
+  <label class="menu-button-container" for="menu-toggle">
+    <div class="menu-button"></div>
+  </label>
+  <ul class="menu">
+    <% if(isLoggedIn) {%>
+    <li><a href="/dashboard">DASHBOARD</a></li>
+    <li><a href="/sell">SELL</a></li>
+    <li><a href="/report">REPORTS</a></li>
+    <li><a href="/signup">CREATE USERS</a></li>
+    <li><a href="/logout">LOGOUT</a></li>
+    <% } else {%>
+    <li><a href="/">HOME</a></li>
+    <li><a href="/login">LOGIN</a></li>
+    <% } %>
+  </ul>
+</section>

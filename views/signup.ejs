@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <%- include("layouts/header") -%>
+
+  <body>
+    <!-- Navigation contents -->
+    <%- include("layouts/navbar") -%>
+
+    <!-- background image is populated here -->
+    <header class="hero login_hero" id="home">
+      <h1>Create Users</h1>
+    </header>
+
+    <main>
+      <!-- button to move the page at the the top -->
+      <button id="go_to_top" title="Go to top">^</button>
+
+      <section id="signup_form_container">
+        <form id="signup_form" method="POST" action="/signup">
+          <fieldset id="signup_form_fieldset">
+            <label for="firstName"
+              >First Name <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="First Name (3 or more characters)"
+              pattern="[a-zA-Z0-9.]{3,}"
+              value="<%= firstName %>"
+              required
+            />
+
+            <label for="lastName"
+              >Last Name <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Last Name (3 or more characters)"
+              pattern="[a-zA-Z0-9.]{3,}"
+              value="<%= lastName %>"
+              required
+            />
+
+            <label for="email"
+              >Email <span class="required">*</span></label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email "
+              value="<%= email %>"
+              required
+            />
+
+            <label for="phoneNumber"
+              >Phone Number <span class="required">*</span></label
+            >
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              placeholder="Phone Number"
+              value="<%= phoneNumber %>"
+              required
+            />
+
+            <label for="userType"
+              >User Type <span class="required">*</span></label
+            >
+            <select name="userType" id="userType" value="<%= selectedUserType %>">
+              <option name="Customer">Customer</option>
+              <option name="Admin">Admin</option>
+            </select>
+
+            <label for="username" class="admin_details"
+              >Username <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username (3 or more characters)"
+              pattern="[a-zA-Z0-9.]{3,}"
+              value="<%= username %>"
+              class="admin_details"
+            />
+
+            <label for="password" class="admin_details"
+              >Password <span class="required">*</span></label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              class="admin_details"
+              value="<%= password %>"
+            />
+
+            <label for="confirm_password" class="admin_details"
+              >Confirm Password <span class="required">*</span></label
+            >
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              placeholder="Password"
+              class="admin_details"
+              value="<%= password %>"
+            />
+
+            <!-- This field will be populated from js if there are errors when submitting the form. -->
+            <% if (errors && errors.length > 0) {%>
+            <div id="errors">
+              <% for(let i=0;i<errors.length;i++){ %> 
+                <p><%= errors[i] %></p>
+              <%}%>
+            </div>
+            <% } %>
+
+            <label for="submit"></label>
+            <input type="submit" name="submit" id="login_submit" value="REGISTER" />
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <%- include("layouts/footer") -%> <%- include("layouts/scripts") -%>
+  </body>
+</html>
