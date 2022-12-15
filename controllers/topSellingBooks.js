@@ -6,7 +6,7 @@ class ExtendedFPDF extends FPDF {
   // Set header with logo and the college name for the pdf
   Header() {
     this.Image(
-      path.join(__dirname, '..', 'public', 'images', 'conestogalogo.png'),
+      path.join(__dirname, '..', 'public', 'images', 'logo.png'),
       95,
       10,
       20,

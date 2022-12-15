@@ -6,6 +6,9 @@ $(document).ready(function () {
   const $paymentMode = $('#payment_mode');
   const $phone = $('#phone');
 
+  const $startDate = $('#start_date');
+  const $endDate = $('#end_date');
+
   let items = [];
   let isUserSubmit = false;
   let total = 0;
@@ -15,6 +18,10 @@ $(document).ready(function () {
   let currentBookQty = 0;
   if ($('#book_number').is(':visible')) {
     books = JSON.parse($('#books').val());
+  }
+
+  if($($startDate).is(':visible') && $($startDate).val() || $($endDate).val()) {
+    $("#sales_link")[0].click();
   }
 
   $($bookNumber).on('blur', (e) => {

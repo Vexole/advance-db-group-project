@@ -7,11 +7,11 @@
     <%- include("layouts/navbar") %>
 
     <section id="headers">
-      <header class="hero sales_hero" id="home">
-        <h1><a href="#sale_list_container">Sales</a></h1>
+      <header class="hero sales_hero" id="sales">
+        <h1><a href="#sale_list_container" id="sales_link">Sales</a></h1>
       </header>
 
-      <header class="hero inventory_hero" id="home">
+      <header class="hero inventory_hero" id="inventory">
         <h1><a href="#inventory_container">Inventory</a></h1>
       </header>
     </section>
@@ -26,9 +26,19 @@
           <section id="sale_filter_form_fieldset">
             <p>Filter By:</p>
             <label for="start_date">Start Date</label>
-            <input type="date" name="start_date" id="start_date" />
+            <input
+              type="date"
+              name="start_date"
+              id="start_date"
+              value="<%= startDate %>"
+            />
             <label for="end_date">End Date</label>
-            <input type="date" name="end_date" id="end_date" />
+            <input
+              type="date"
+              name="end_date"
+              id="end_date"
+              value="<%= endDate %>"
+            />
             <input type="submit" name="submit" id="filter" value="FILTER" />
           </section>
           <table id="sales">

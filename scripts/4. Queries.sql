@@ -40,4 +40,4 @@ SELECT b.id, isbn, name, price, count FROM books b JOIN stocks s ON b.id = s.boo
 
 select * from stocks;
 
-select ISBN, name, price, count from books b join stocks s on b.id = s.book_id;
+select ISBN, name, price, count from books b join stocks s on b.id = s.book_id ORDER BY count;
