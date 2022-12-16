@@ -17,6 +17,8 @@ const {
   invoice,
   dashboard,
   filterSale,
+  changePassword,
+  changeUserPassword,
 } = require('../controllers/controllers');
 
 const { checkAuth } = require('../middleware/checkIfAuth');
@@ -24,18 +26,20 @@ const { checkAuth } = require('../middleware/checkIfAuth');
 const router = express.Router();
 
 router.get('/', home);
-router.get('/logout', logOut);
+router.get('/logout', checkAuth, logOut);
 router.get('/login', login);
 router.post('/login', loginUser);
-router.get('/signup', signup);
-router.post('/signup', signupUser);
-router.get('/report', report);
-router.get('/dashboard', dashboard);
-router.post('/filterSale', filterSale);
-router.get('/sell', sell);
-router.post('/sell',  makeSell);
-router.get('/invoice', invoice);
-router.get('/topSellingBooks', topSellingBooks);
-router.get('/topSpendingCustomers', topSpendingCustomers);
-router.get('/salesPaymentMode', salesPaymentMode);
+router.get('/changePassword', changePassword);
+router.post('/changePassword', changeUserPassword);
+router.get('/signup', checkAuth, signup);
+router.post('/signup', checkAuth, signupUser);
+router.get('/report', checkAuth, report);
+router.get('/dashboard', checkAuth, dashboard);
+router.post('/filterSale', checkAuth, filterSale);
+router.get('/sell', checkAuth, sell);
+router.post('/sell', checkAuth, makeSell);
+router.get('/invoice', checkAuth, invoice);
+router.get('/topSellingBooks', checkAuth, topSellingBooks);
+router.get('/topSpendingCustomers', checkAuth, topSpendingCustomers);
+router.get('/salesPaymentMode', checkAuth, salesPaymentMode);
 module.exports = router;

@@ -2,6 +2,10 @@
 
 const { login, loginUser, logOut } = require('./loginController');
 const { signup, signupUser } = require('./signupController');
+const {
+  changeUserPassword,
+  changePassword,
+} = require('./changePasswordController');
 const { sell, makeSell } = require('./sellController');
 const { dashboard, filterSale } = require('./dashboardController');
 const { topSellingBooks } = require('./topSellingBooks');
@@ -22,6 +26,8 @@ module.exports = {
   login,
   loginUser,
   logOut,
+  changePassword,
+  changeUserPassword,
   signup,
   signupUser,
   report,
