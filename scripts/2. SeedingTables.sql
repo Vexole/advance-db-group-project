@@ -29,9 +29,9 @@ insert into stocks (book_id, count) values(1, 25), (2, 20), (3, 5), (4, 1), (5, 
 insert into customers values(1, "John", "Doe", "john.doe@gmail.com", 6471839280), (2, "Tim", "Thomas", "tim.thomas@gmail.com", 6473629000),
 	(3, "Larry", "Page", "larry.page@gmail.com", 6471625241), (4, "Jenny", "Hanks", "jenny.hanks@gmail.com", 64710300339),
     (5, "Laura", "Hanna", "laura.hanna@gmail.com", 5123462512),
-    (6, "John", "Pitsol", "john.pitsol@gmail.com", 6551239280), (7, "Tom", "Holland", "tom.holland@gmail.com", 6473629010),
+    (6, "John", "Pitsol", "john.pitsol@gmail.com", 7777777777), (7, "Tom", "Holland", "tom.holland@gmail.com", 6666666666),
 	(8, "Dustin", "Marks", "dustin.marks@gmail.com", 6473625241), (9, "Franky", "Junior", "franky.junior@gmail.com", 64715309039),
-    (10, "Celin", "Redrose", "celin.redrose@gmail.com", 5123461512);
+    (10, "Celin", "Redrose", "celin.redrose@gmail.com", 1234567890);
 
 -- Inserting data in employees
 insert into employees(customer_id, hire_date, is_active) values (1, '2002-12-01', 1), (6, '2010-10-10', 1), (7, '2020-03-29', 0);

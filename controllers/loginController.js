@@ -1,3 +1,5 @@
+// CodeCrunchers - Ayush Daverani (8786826), Bhupesh Shrestha (8811567)
+
 const db = require('../utils/dbConnection');
 const bcrypt = require('bcrypt');
 

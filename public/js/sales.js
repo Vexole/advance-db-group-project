@@ -12,6 +12,7 @@ $(document).ready(function () {
   let items = [];
   let isUserSubmit = false;
   let total = 0;
+  let tex = 0;
   let books;
   let currentBookId = 0;
   let currentBookName = '';
@@ -20,8 +21,11 @@ $(document).ready(function () {
     books = JSON.parse($('#books').val());
   }
 
-  if($($startDate).is(':visible') && $($startDate).val() || $($endDate).val()) {
-    $("#sales_link")[0].click();
+  if (
+    ($($startDate).is(':visible') && $($startDate).val()) ||
+    $($endDate).val()
+  ) {
+    $('#sales_link')[0].click();
   }
 
   $($bookNumber).on('blur', (e) => {
@@ -43,6 +47,7 @@ $(document).ready(function () {
 
   $('#add_to_cart').on('click', (e) => {
     total = 0;
+    tax = 0;
     let alreadyInCart = false;
     const bookNumber = $($bookNumber).val();
     const bookPrice = $($bookPrice).val();
@@ -103,6 +108,10 @@ $(document).ready(function () {
         total += +item.bookPrice * +item.bookQty;
         totalCell.innerText = `$${+item.bookPrice * +item.bookQty}`;
       });
+
+      tax = (0.13 * total).toFixed(2);
+      total = (total + +tax).toFixed(2);
+      $('#tax')[0].innerText = `$${tax}`;
       $('#total')[0].innerText = `$${total}`;
     } else {
       alert('Please enter valid details');
@@ -120,6 +129,7 @@ $(document).ready(function () {
           items,
           phone: $($phone).val(),
           paymentMode: $($paymentMode).val(),
+          tax,
           total,
         })
       );

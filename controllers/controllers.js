@@ -1,3 +1,5 @@
+// CodeCrunchers - Ayush Daverani (8786826), Bhupesh Shrestha (8811567)
+
 const { login, loginUser, logOut } = require('./loginController');
 const { signup, signupUser } = require('./signupController');
 const { sell, makeSell } = require('./sellController');

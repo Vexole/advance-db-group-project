@@ -1,3 +1,5 @@
+// CodeCrunchers - Ayush Daverani (8786826), Bhupesh Shrestha (8811567)
+
 const db = require('../utils/dbConnection');
 
 const sell = (req, res) => {
@@ -11,7 +13,7 @@ const sell = (req, res) => {
 const makeSell = async (req, res) => {
   const { sale: saleString } = req.body;
   const userSaleDetails = JSON.parse(saleString);
-  let saleQuery = `INSERT INTO sales (total_price, employee_id, purchase_date, tax) VALUES (${userSaleDetails.total}, ${req.session.employeeId}, NOW(), ${(userSaleDetails.total * 0.13).toFixed(2)});`;
+  let saleQuery = `INSERT INTO sales (total_price, employee_id, purchase_date, tax) VALUES (${userSaleDetails.total}, ${req.session.employeeId}, NOW(), ${+userSaleDetails.tax});`;
 
   if (userSaleDetails.phone) {
     const customerQuery = `SELECT id, first_name, last_name FROM customers c WHERE c.phone = ${+userSaleDetails.phone};`;
@@ -19,7 +21,7 @@ const makeSell = async (req, res) => {
       if (err) console.log(err);
       if (customer && customer.length > 0) {
         req.session.customerName = `${customer[0]['first_name']} ${customer[0]['last_name']}`;
-        saleQuery = `INSERT INTO sales (total_price, employee_id, customer_id, purchase_date, tax) VALUES (${userSaleDetails.total}, ${req.session.employeeId}, ${customer[0]['id']}, NOW(), ${(userSaleDetails.total * 0.13).toFixed(2)});`;
+        saleQuery = `INSERT INTO sales (total_price, employee_id, customer_id, purchase_date, tax) VALUES (${userSaleDetails.total}, ${req.session.employeeId}, ${customer[0]['id']}, NOW(), ${+userSaleDetails.tax});`;
       }
       insertSale(req, res, saleQuery, userSaleDetails);
     });

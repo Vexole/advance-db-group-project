@@ -13,6 +13,16 @@ $(document).ready(function () {
     controls: false,
   });
 
+  $('#increase').on('click', (e) => {
+    const currentFontSize = $('main').css('fontSize');
+    $('main').css('font-size', `${parseInt(currentFontSize) + 1}px`);
+  });
+
+  $('#decrease').on('click', (e) => {
+    const currentFontSize = $('main').css('fontSize');
+    $('main').css('font-size', `${parseInt(currentFontSize) - 1}px`);
+  });
+
   if ($('#errors').is(':visible')) {
     $('html, body').animate({ scrollTop: 550 }, 'slow');
   }
