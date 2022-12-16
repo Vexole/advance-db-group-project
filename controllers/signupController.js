@@ -132,7 +132,7 @@ const insertPassword = (req, res, loginId, password) => {
       req.session.body = req.body;
       return res.redirect('/signup');
     }
-    return res.redirect('/login');
+    return res.redirect('/signup');
   });
 };
 

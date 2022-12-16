@@ -64,6 +64,11 @@ $(document).ready(function () {
       }
     }
 
+    if (!bookQty || bookQty < 1) {
+      alert('Please enter valid details.');
+      return;
+    }
+
     if (bookQty > currentBookQty) {
       alert('Not enough stock');
       return;
