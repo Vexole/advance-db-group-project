@@ -84,7 +84,7 @@ const invoice = (req, res) => {
   pdf.Ln(10);
 
   pdf.Cell(20, 1, '', 0, 0, 'C');
-  pdf.Cell(30, 20, 'Payment Mode: ', 0, 0, 'L');
+  pdf.Cell(40, 20, 'Payment Mode: ', 0, 0, 'L');
   pdf.Cell(18, 20, sale.paymentMode.split('|')[1], 0, 0, 'C');
   pdf.Ln(10);
 
